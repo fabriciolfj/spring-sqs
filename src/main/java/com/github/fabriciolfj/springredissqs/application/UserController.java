@@ -6,7 +6,7 @@ import com.github.fabriciolfj.springredissqs.core.service.operationmsg.MessageSe
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
-import javax.websocket.server.PathParam;
+
 import java.util.Map;
 
 @Slf4j
@@ -18,8 +18,8 @@ public class UserController {
     private final MessageSendService sqsSender;
     private final UserService userService;
 
-    @GetMapping
-    public User getById(@PathParam("id") Integer id) {
+    @GetMapping("/{id}")
+    public User getById(@PathVariable("id") Integer id) {
         return userService.getById(id);
     }
 
